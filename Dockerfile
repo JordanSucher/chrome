@@ -61,7 +61,8 @@ RUN if [ "$USE_CHROME_STABLE" = "true" ]; then \
 USER blessuser
 
 # Expose the web-socket and HTTP ports
-EXPOSE ${PORT} 9222
+EXPOSE ${PORT} 9222 
+EXPOSE 5900:5900
 
 # Install x11vnc
 RUN apt-get update && \
