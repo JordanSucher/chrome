@@ -61,6 +61,6 @@ RUN if [ "$USE_CHROME_STABLE" = "true" ]; then \
 USER blessuser
 
 # Expose the web-socket and HTTP ports
-EXPOSE ${PORT}
+EXPOSE ${PORT} 9222
 
 CMD ["./start.sh"]
