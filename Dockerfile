@@ -57,6 +57,14 @@ RUN if [ "$USE_CHROME_STABLE" = "true" ]; then \
   npm prune --production &&\
   chown -R blessuser:blessuser $APP_DIR
 
+
+
+# Install x11vnc
+RUN apt-get update && \
+    apt-get install -y x11vnc && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 # Run everything after as non-privileged user.
 USER blessuser
 
@@ -64,11 +72,6 @@ USER blessuser
 EXPOSE ${PORT} 9222 
 EXPOSE 5900:5900
 
-# Install x11vnc
-RUN apt-get update && \
-    apt-get install -y x11vnc && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
 
 
 CMD ["./start.sh"]
