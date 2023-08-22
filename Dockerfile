@@ -43,6 +43,16 @@ RUN if [ -n "$CHROME_STABLE_VERSION" ]; then \
     dpkg -i google-chrome-stable_current_amd64.deb;\
   fi
 
+
+# Install sudo
+RUN apt-get update && apt-get install -y sudo
+
+RUN usermod -aG sudo blessuser
+
+RUN echo "blessuser ALL=NOPASSWD: ALL" >> /etc/sudoers
+
+
+
 # Build and install external binaries + assets
 # NOTE: The `PUPPETEER_VERSION` is needed for production versions
 # listed in package.json
