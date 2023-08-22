@@ -71,8 +71,8 @@ RUN if [ "$USE_CHROME_STABLE" = "true" ]; then \
   chown -R blessuser:blessuser $APP_DIR
 
 
-# Run everything after as non-privileged user.
-USER blessuser
+# # Run everything after as non-privileged user.
+# USER blessuser
 
 # Expose the web-socket and HTTP ports
 EXPOSE ${PORT} 9222 
