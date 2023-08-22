@@ -65,10 +65,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu focal-security main restricted un
 
 
 # Install x11vnc
-RUN apt-get update && \
-    apt-get install -y x11vnc && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y x11vnc
 
 # Run everything after as non-privileged user.
 USER blessuser
