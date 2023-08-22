@@ -45,11 +45,14 @@ RUN if [ -n "$CHROME_STABLE_VERSION" ]; then \
 
 
 # Install sudo
-RUN apt-get update && apt-get install -y sudo
 
-RUN usermod -aG sudo blessuser
+RUN echo "root:password" | chpasswd
 
-RUN echo "blessuser ALL=NOPASSWD: ALL" >> /etc/sudoers
+# RUN apt-get update && apt-get install -y sudo
+
+# RUN usermod -aG sudo blessuser
+
+# RUN echo "blessuser ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 
 
