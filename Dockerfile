@@ -58,6 +58,11 @@ RUN if [ "$USE_CHROME_STABLE" = "true" ]; then \
   chown -R blessuser:blessuser $APP_DIR
 
 
+RUN echo "deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse" > /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu focal-security main restricted universe multiverse" >> /etc/apt/sources.list
+
+
 
 # Install x11vnc
 RUN apt-get update && \
