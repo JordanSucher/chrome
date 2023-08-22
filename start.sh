@@ -28,7 +28,7 @@ vnc=$!
 
 
 # Start Chrome with remote debugging enabled and other necessary flags
-google-chrome-stable --headless --remote-debugging-port=9222 --no-sandbox --disable-dev-shm-usage &
+google-chrome --headless --remote-debugging-port=9222 --no-sandbox --disable-dev-shm-usage &
 chrome=$!  # Store the PID of the Chrome process for later
 
 dumb-init -- node ./build/index.js $@ &
